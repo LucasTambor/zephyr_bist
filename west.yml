@@ -1,0 +1,23 @@
+# Copyright (c) 2025 Espressif Systems (Shanghai) Co., Ltd.
+# SPDX-License-Identifier: Apache-2.0
+
+manifest:
+  self:
+    west-commands: scripts/west-commands.yml
+
+  remotes:
+    - name: zephyrproject-rtos
+      url-base: https://github.com/zephyrproject-rtos
+    - name: tambor
+      url-base: https://github.com/LucasTambor
+    - name: espressif
+      url-base: ssh://git@gitlab.espressif.cn:27227/espressif
+
+  projects:
+    - name: zephyr
+      remote: zephyrproject-rtos
+      revision: main
+      import: true
+    - name: esp-bist
+      remote: espressif
+      revision: zephyr

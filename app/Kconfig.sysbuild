@@ -1,0 +1,11 @@
+# Copyright 2023 Nordic Semiconductor ASA
+# Copyright 2023-2025 NXP
+# Copyright 2025 Ezurio LLC
+#
+# SPDX-License-Identifier: Apache-2.0
+
+source "share/sysbuild/Kconfig"
+
+config REMOTE_BOARD
+	string "Remote board"
+	default "esp32c6_devkitc/esp32c6/lpcore" if "$(BOARD)${BOARD_QUALIFIERS}" = "esp32c6_devkitc/esp32c6/hpcore"
