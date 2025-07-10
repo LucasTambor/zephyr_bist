@@ -1,28 +1,6 @@
-# LP Core Example Application
+# LP Core and BIST Example Application
 
-This project demonstrates a simple interaction between the High-Performance (HP) Core and the Low-Power (LP) Core on the ESP32-C6 DevKit.
-
-**HP Core Behavior:**
-
-The HP Core continuously rotates the colors of an RGB LED.
-
-When the Boot button is pressed, it triggers an interrupt that:
-
-Sends an interrupt to the LP Core.
-
-Puts the HP Core into deep sleep mode, causing the RGB LED to stop rotating.
-
-**LP Core Behavior:**
-
-On boot, the LP Core sends a "Hello World!" message to the console with the identifier: `esp32c6_devkitc/esp32c6/lpcore`.
-
-It then waits for an interrupt from the HP Core (triggered by the Boot button press).
-
-When the interrupt is received, the LP Core waits for 5 seconds and then wakes up the HP Core.
-
-The LP Core only resets when the device is powered up.
-
-## Initialization
+This project demonstrates how to integrate the Zephyr OS on HP (High-Performance) and LP (Low-Power) cores of the ESP32-C6, along with the ESP-BIST library for built-in self-test functionality.
 
 The first step is to initialize the workspace folder (``my-workspace``) where
 the ``lpcore_app_example`` and all Zephyr modules will be cloned. Run the following
@@ -30,7 +8,7 @@ command:
 
 ```shell
 # initialize the workspace (main branch)
-west init -m https://github.com/LucasTambor/lpcore_app_example --mr main my-workspace
+west init -m https://github.com/LucasTambor/zephyr_bist --mr main my-workspace
 # update Zephyr modules
 cd my-workspace
 west update
@@ -41,7 +19,7 @@ west update
 To build the application, run the following command:
 
 ```shell
-cd lpcore_app_example
+cd lpcore_bist
 west build -p -b esp32c6_devkitc/esp32c6/hpcore app --sysbuild
 ```
 
