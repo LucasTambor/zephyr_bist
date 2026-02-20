@@ -3,10 +3,10 @@
 This project demonstrates how to integrate the Zephyr OS on HP (High-Performance) and LP (Low-Power) cores of the ESP32-C6, along with the ESP-BIST library for built-in self-test functionality.
 
 The first step is to initialize the workspace folder (``my-workspace``) where
-the ``lpcore_app_example`` and all Zephyr modules will be cloned. Run the following
+the ``zephyr_bist`` and all Zephyr modules will be cloned. Run the following
 command:
 
-```shell
+```sh
 # initialize the workspace (main branch)
 west init -m https://github.com/LucasTambor/zephyr_bist --mr main my-workspace
 # update Zephyr modules
@@ -18,7 +18,7 @@ west update
 
 To build the application, run the following command:
 
-```shell
+```sh
 cd lpcore_bist
 west build -p -b esp32c6_devkitc/esp32c6/hpcore app --sysbuild
 ```

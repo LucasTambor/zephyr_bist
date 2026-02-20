@@ -20,4 +20,4 @@ manifest:
       import: true
     - name: esp-bist
       remote: espressif
-      revision: zephyr
+      revision: v1.0.0
